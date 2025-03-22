@@ -1,12 +1,13 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 # Set your credentials
-CLIENT_ID = '2fd811ef23d04ac486479122098f8b1e'  # Replace with your Client ID
-# Replace with your Client Secret
-CLIENT_SECRET = '740a2c24f8eb4b16b686a3967a2e93e1'
-REDIRECT_URI = 'http://localhost:8888/callback'
-SCOPE = 'user-library-modify'
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+REDIRECT_URI = os.getenv('REDIRECT_URI')
+SCOPE = os.getenv('SCOPE')
 
 # Authenticate with Spotify
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
